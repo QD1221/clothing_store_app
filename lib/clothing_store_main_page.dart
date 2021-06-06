@@ -1,4 +1,5 @@
 import 'package:clothing_store_app/clothing_store_detail_page.dart';
+import 'package:clothing_store_app/shopping_cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -32,31 +33,37 @@ class _ClothingStoreMainPageState extends State<ClothingStoreMainPage> {
                       style: TextStyle(
                           color: Colors.black, fontWeight: FontWeight.bold),
                     ),
-                    Container(
-                      height: 38,
-                      width: 38,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            child: Icon(Icons.shopping_bag_outlined),
-                            left: 8,
-                            top: 8,
-                            right: 8,
-                            bottom: 8,
-                          ),
-                          Positioned(
-                              child: CircleAvatar(
-                                radius: 8,
-                                child: Text(
-                                  '3',
-                                  style: TextStyle(fontSize: 12),
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ShoppingCartPage()));
+                      },
+                      child: Container(
+                        height: 38,
+                        width: 38,
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              child: Icon(Icons.shopping_bag_outlined),
+                              left: 8,
+                              top: 8,
+                              right: 8,
+                              bottom: 8,
+                            ),
+                            Positioned(
+                                child: CircleAvatar(
+                                  radius: 8,
+                                  child: Text(
+                                    '3',
+                                    style: TextStyle(fontSize: 12),
+                                  ),
+                                  backgroundColor: Colors.red,
+                                  foregroundColor: Colors.white,
                                 ),
-                                backgroundColor: Colors.red,
-                                foregroundColor: Colors.white,
-                              ),
-                              right: 0,
-                              top: 0),
-                        ],
+                                right: 0,
+                                top: 0),
+                          ],
+                        ),
                       ),
                     )
                   ],
