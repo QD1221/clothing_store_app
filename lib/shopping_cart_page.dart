@@ -11,6 +11,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.grey[100],
@@ -28,25 +29,119 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
           child: Column(
             children: [
               Expanded(
-                child: Placeholder(),
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: ListView.builder(
+                    itemCount: 4,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: Container(
+                          height: 100,
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 84,
+                                width: 84,
+                                decoration: BoxDecoration(color: Colors.white),
+                              ),
+                              
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text('Dream Walker - Jacket'),
+                                        Spacer(),
+                                        IconButton(
+                                            icon: Icon(Icons.clear),
+                                            onPressed: () {})
+                                      ],
+                                    ),
+                                    Text(
+                                      'Size: Extra Large(XL)', style: TextStyle(
+                                      color: Colors.grey
+                                    ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text('\$0.99'),
+                                       Text('\$59.99', style: TextStyle(
+                                         decoration: TextDecoration.lineThrough,
+                                         color: Colors.grey
+                                       ),),
+                                        Spacer(),
+                                        Container(
+                                          height: 24,
+                                          width: 24,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            border: Border.all(
+                                              color: Colors.grey
+                                            ),
+                                            shape: BoxShape.circle
+                                          ),
+                                          child: Icon(Icons.remove, size: 16,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                                          child: Text(
+                                            '01'
+                                          ),
+                                        ),
+                                        Container(
+                                          height: 24,
+                                          width: 24,
+                                          decoration: BoxDecoration(
+                                              color: Colors.indigo,
+                                              border: Border.all(
+                                                  color: Colors.grey
+                                              ),
+                                              shape: BoxShape.circle
+                                          ),
+                                          child: Icon(Icons.add, size: 16, color: Colors.white,),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
                 flex: 5,
               ),
               Expanded(
                 child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 8),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12)),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         'Promo Code',
                         style: TextStyle(color: Colors.grey),
                       ),
                       Container(
+                        margin: EdgeInsets.symmetric(vertical: 12),
+                        decoration: BoxDecoration(
+                            color: Colors.indigo,
+                            borderRadius: BorderRadius.circular(8)),
+                        padding: EdgeInsets.symmetric(horizontal: 16),
                         child: Center(
-                          child: Text('Apply', style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold
-                          ),),
+                          child: Text(
+                            'Apply',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                       )
                     ],
